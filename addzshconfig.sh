@@ -37,4 +37,3 @@ echo 'alias ll="ls -hal"' >> ~/.zshrc
 #         ;;
 # esac
 
-p10k configure
