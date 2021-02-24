@@ -67,7 +67,7 @@ Open File → Preferences → Settings, enter terminal.integrated.fontFamily in 
 #### In ~/.zshrc add the plugins in `plugins=()`. The line should now look like
 `plugins=( git zsh-syntax-highlighting zsh-autosuggestions )`
 #### If this is a fresh install, use this line to replace automatically.
-`sed -i s/plugins=(git)/plugins=( git zsh-syntax-highlighting zsh-autosuggestions )/` ~/.zshrc
+`sed -i 's/plugins=(git)/plugins=( git zsh-syntax-highlighting zsh-autosuggestions )/' ~/.zshrc`
 
 ### after saving the file:
 `source ~/.zshrc`
@@ -111,6 +111,8 @@ Open File → Preferences → Settings, enter terminal.integrated.fontFamily in 
 
 #### In ~/.zshrc add the plugins in `plugins=()`
 `plugins=( git zsh-syntax-highlighting zsh-autosuggestions )`
+#### If this is a fresh install, use this line to replace automatically.
+`sed -i 's/plugins=(git)/plugins=( git zsh-syntax-highlighting zsh-autosuggestions )/' ~/.zshrc`
 
 ### after saving the file:
 `source ~/.zshrc`
