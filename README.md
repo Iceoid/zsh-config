@@ -22,11 +22,21 @@
 * https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 * https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
-##### For Linux:
-tbd
+### _For Linux_:
+```
+mkdir -p ~/.local/share/fonts \
+cd ~/.local/share/fonts \
+curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf \
+curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
+curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf \
+curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf \
+fc-cache -f -v
+```
+### confirm fonts install with:
+`fc-list | grep "MesloLGS"`
 
-##### For Windows wsl:
-##### To install, go to the Windows fonts menu and drag and drop the ttf files.
+### _For Windows wsl_:
+### To install, go to the Windows fonts menu and drag and drop the ttf files.
 
 ### (optional) For Visual Studio Code: 
 Open File → Preferences → Settings, enter terminal.integrated.fontFamily in the search box and set the value to MesloLGS NF.
@@ -81,3 +91,24 @@ Open File → Preferences → Settings, enter terminal.integrated.fontFamily in 
 * https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
 * https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 * https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
+### Quit the terminal session and relaunch
+
+### Run the configurator
+`p10k configurator`
+
+### Add option for transient prompt (same-dir)
+`echo "typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir" >> ~/.p10k.zsh`
+
+### Install plugins
+#### syntax-highlighting
+`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+
+#### autosuggestions
+`git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+#### In ~/.zshrc add the plugins in `plugins=()`
+`plugins=( git zsh-syntax-highlighting zsh-autosuggestions )`
+
+### after saving the file:
+`source ~/.zshrc`
