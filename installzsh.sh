@@ -15,11 +15,11 @@ function update_packages() {
     for f in ${!osInfo[@]}
     do
         if [[ -f $f ]];then
-            package_manager=${osInfo[$f]}
+            package_manager_cmd=${osInfo[$f]}
         fi
     done
 
-    echo "${package_manager}"
+    echo "${package_manager_cmd}"
 }
 
 function install_packages() {
@@ -32,11 +32,11 @@ function install_packages() {
     for f in ${!osInfo[@]}
     do
         if [[ -f $f ]];then
-            package_manager=${osInfo[$f]}
+            package_manager_cmd=${osInfo[$f]}
         fi
     done
 
-    echo "${package_manager}"
+    echo "${package_manager_cmd}"
 }
 
 ### Installs oh-my-zsh, powerlevel10k theme, and plugins
@@ -65,7 +65,7 @@ unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)     
         machine=Linux
-        echo "Installing on ${unameOut}"
+        echo "Install script for ${unameOut}"
 
         ${SUDO} $(update_packages)
         ${SUDO} $(install_packages) curl wget git zsh -y
