@@ -43,7 +43,7 @@ function install_packages() {
 function install() {
     #sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     cd ~ && mkdir .zshinstall && cd .zshinstall
-    wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     sh install.sh --unattended
     cd .. && rm -R .zshinstall
 
