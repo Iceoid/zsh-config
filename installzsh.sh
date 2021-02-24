@@ -7,10 +7,10 @@ fi
 
 function get_pac_man() {
     declare -A osInfo;
-    osInfo[/etc/debian_version]="${SUDO} apt update && ${SUDO} apt install -y"
-    osInfo[/etc/alpine-release]="${SUDO} apk --update add"
-    osInfo[/etc/centos-release]="${SUDO} yum update && ${SUDO} yum install -y"
-    osInfo[/etc/fedora-release]="${SUDO} dnf update && ${SUDO} dnf install -y"
+    osInfo[/etc/debian_version]="${SUDO} apt update; ${SUDO} apt install -y ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
+    osInfo[/etc/alpine-release]="${SUDO} apk --update add ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
+    osInfo[/etc/centos-release]="${SUDO} yum update; ${SUDO} yum install -y  ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
+    osInfo[/etc/fedora-release]="${SUDO} dnf update; ${SUDO} dnf install -y  ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
 
     for f in ${!osInfo[@]}
     do
@@ -49,8 +49,8 @@ case "${unameOut}" in
     Linux*)     
         machine=Linux
         echo "Installing on ${unameOut}"
-        cmd=$(get_pac_man)
-        "${cmd}" curl wget git zsh -y
+        get_pac_man curl wget git zsh
+        #"${cmd}" curl wget git zsh -y
 
         mkdir -p ~/.local/share/fonts && \
         cd ~/.local/share/fonts && \
