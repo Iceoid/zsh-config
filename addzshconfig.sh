@@ -1,14 +1,16 @@
 #!/bin/bash
 
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 unameOut="$(uname -s)"
 case "${unameOut}" in
     Linux*)     
         machine=Linux
-        sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="fino"/' ~/.zshrc
+        sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k/powerlevel10k"/' ~/.zshrc
         ;;
     Darwin*)
         machine=Mac
-        sed -i .bak 's/ZSH_THEME="robbyrussell"/ZSH_THEME="fino"/' ~/.zshrc
+        sed -i .bak 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k/powerlevel10k"/' ~/.zshrc
         ;;
     *)
         machine="OTHER:${unameOut}"
@@ -34,3 +36,5 @@ case "$1" in
         done
         ;;
 esac
+
+p10k configure
