@@ -5,12 +5,29 @@ if [[ $EUID -ne 0 ]]; then
    SUDO='sudo'
 fi
 
-function get_pac_man() {
+function update_packages() {
     declare -A osInfo;
-    osInfo[/etc/debian_version]="${SUDO} apt update; ${SUDO} apt install -y ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
-    osInfo[/etc/alpine-release]="${SUDO} apk --update add ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
-    osInfo[/etc/centos-release]="${SUDO} yum update; ${SUDO} yum install -y  ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
-    osInfo[/etc/fedora-release]="${SUDO} dnf update; ${SUDO} dnf install -y  ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8}"
+    osInfo[/etc/debian_version]="apt-get update"
+    osInfo[/etc/alpine-release]="apk update"
+    osInfo[/etc/centos-release]="yum update"
+    osInfo[/etc/fedora-release]="dnf update"
+
+    for f in ${!osInfo[@]}
+    do
+        if [[ -f $f ]];then
+            package_manager=${osInfo[$f]}
+        fi
+    done
+
+    echo "${package_manager}"
+}
+
+function install_packages() {
+    declare -A osInfo;
+    osInfo[/etc/debian_version]="apt-get install -y"
+    osInfo[/etc/alpine-release]="apk add"
+    osInfo[/etc/centos-release]="yum install -y"
+    osInfo[/etc/fedora-release]="dnf install -y"
 
     for f in ${!osInfo[@]}
     do
@@ -49,8 +66,9 @@ case "${unameOut}" in
     Linux*)     
         machine=Linux
         echo "Installing on ${unameOut}"
-        get_pac_man curl wget git zsh
-        $package_manager
+
+        ${SUDO} $(update_packages)
+        ${SUDO} $(install_packages) curl wget git zsh -y
 
         mkdir -p ~/.local/share/fonts && \
         cd ~/.local/share/fonts && \
