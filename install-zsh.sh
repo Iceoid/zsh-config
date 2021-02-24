@@ -21,4 +21,3 @@ case "${unameOut}" in
         machine="OTHER:${unameOut}"
         ;;
 esac
-echo ${machine}
