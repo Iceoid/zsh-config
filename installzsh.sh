@@ -24,10 +24,10 @@ function update_packages() {
 
 function install_packages() {
     declare -A osInfo;
-    osInfo[/etc/debian_version]="apt-get install -y ${1} ${2} ${3} ${4} ${5}"
-    osInfo[/etc/alpine-release]="apk add ${1} ${2} ${3} ${4} ${5}"
-    osInfo[/etc/centos-release]="yum install -y ${1} ${2} ${3} ${4} ${5}"
-    osInfo[/etc/fedora-release]="dnf install -y ${1} ${2} ${3} ${4} ${5}"
+    osInfo[/etc/debian_version]="apt-get install -y ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8} ${9} ${10}"
+    osInfo[/etc/alpine-release]="apk add ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8} ${9} ${10}"
+    osInfo[/etc/centos-release]="yum install -y ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8} ${9} ${10}"
+    osInfo[/etc/fedora-release]="dnf install -y ${1} ${2} ${3} ${4} ${5} ${6} ${7} ${8} ${9} ${10}"
 
     for f in ${!osInfo[@]}
     do
