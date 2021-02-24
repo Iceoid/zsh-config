@@ -33,10 +33,9 @@ curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20
 ```
 
 ### _For Windows wsl_:
-### To install, go to the Windows fonts menu and drag and drop the ttf files.
-
-### (optional) For Visual Studio Code: 
-Open File → Preferences → Settings, enter terminal.integrated.fontFamily in the search box and set the value to MesloLGS NF.
+1) right-click on a font file and check 'unblock' at the bottom and apply.
+2) right-click and select install for all users.
+3) repeat for the other font files.
 
 ### Set the fontFace in the terminal options:
 ```
@@ -49,6 +48,10 @@ Open File → Preferences → Settings, enter terminal.integrated.fontFamily in 
     
 }
 ```
+
+### (optional) For Visual Studio Code: 
+Open File → Preferences → Settings, enter terminal.integrated.fontFamily in the search box and set the value to MesloLGS NF.
+
 ### Quit the terminal session and relaunch
 
 ### Run the configurator
