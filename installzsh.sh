@@ -49,7 +49,8 @@ case "${unameOut}" in
     Linux*)     
         machine=Linux
         echo "Installing on ${unameOut}"
-        get_pac_man curl wget git zsh
+        cmd=$(get_pac_man curl wget git zsh)
+        $cmd
         #"${cmd}" curl wget git zsh -y
 
         mkdir -p ~/.local/share/fonts && \
