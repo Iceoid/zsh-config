@@ -24,10 +24,10 @@ function update_packages() {
 
 function install_packages() {
     declare -A osInfo;
-    osInfo[/etc/debian_version]="apt-get install -y"
-    osInfo[/etc/alpine-release]="apk add"
-    osInfo[/etc/centos-release]="yum install -y"
-    osInfo[/etc/fedora-release]="dnf install -y"
+    osInfo[/etc/debian_version]="apt-get install -y ${1} ${2} ${3} ${4} ${5}"
+    osInfo[/etc/alpine-release]="apk add ${1} ${2} ${3} ${4} ${5}"
+    osInfo[/etc/centos-release]="yum install -y ${1} ${2} ${3} ${4} ${5}"
+    osInfo[/etc/fedora-release]="dnf install -y ${1} ${2} ${3} ${4} ${5}"
 
     for f in ${!osInfo[@]}
     do
@@ -68,7 +68,7 @@ case "${unameOut}" in
         echo "Install script for ${unameOut}"
 
         ${SUDO} $(update_packages)
-        ${SUDO} $(install_packages) curl wget git zsh -y
+        ${SUDO} $(install_packages curl wget git zsh) #curl wget git zsh
 
         mkdir -p ~/.local/share/fonts && \
         cd ~/.local/share/fonts && \
