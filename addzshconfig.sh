@@ -23,6 +23,7 @@ function help() {
     echo "No other flags for now."
 }
 # ${@} for all arguments passed to the script. ${@:2:3} starts at the 2nd argument, and contains up to 3 args.
+# TODO: check if alias exits before adding it. (using grep? ie grep -v "blahblah" | ...)
 case "$1" in
     -h | --help)
         help
