@@ -11,7 +11,7 @@
 `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 
 ### Change the theme in ~/.zshrc (ZSH_THEME="powerlevel10k/powerlevel10k)
-`sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k/powerlevel10k"/' ~/.zshrc`
+`sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc`
 
 ### Add your aliases (optional)
 `echo 'alias ll="ls -hal"' >> ~/.zshrc`
@@ -82,6 +82,9 @@ Open File → Preferences → Settings, enter terminal.integrated.fontFamily in 
 
 ### Install powerlevel10k theme
 `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+
+### Change the theme in ~/.zshrc (ZSH_THEME="powerlevel10k/powerlevel10k)
+`sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc`
 
 ### Add your aliases (optional)
 `echo 'alias ll="ls -hal"' >> ~/.zshrc`
