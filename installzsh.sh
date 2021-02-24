@@ -5,6 +5,23 @@ if [[ $EUID -ne 0 ]]; then
    SUDO='sudo'
 fi
 
+function get_pac_man() {
+    declare -A osInfo;
+    osInfo[/etc/debian_version]="${SUDO} apt update && ${SUDO} apt install -y"
+    osInfo[/etc/alpine-release]="${SUDO} apk --update add"
+    osInfo[/etc/centos-release]="${SUDO} yum update && ${SUDO} yum install -y"
+    osInfo[/etc/fedora-release]="${SUDO} dnf update && ${SUDO} dnf install -y"
+
+    for f in ${!osInfo[@]}
+    do
+        if [[ -f $f ]];then
+            package_manager=${osInfo[$f]}
+        fi
+    done
+
+    echo "${package_manager}"
+}
+
 ### Installs oh-my-zsh, powerlevel10k theme, and plugins
 function install() {
     #sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -33,8 +50,7 @@ case "${unameOut}" in
         machine=Linux
         echo "Installing on ${unameOut}"
 
-        ${SUDO} apt update
-        ${SUDO} apt install curl wget git zsh -y
+        $(get_pac_man) curl wget git zsh -y
 
         mkdir -p ~/.local/share/fonts && \
         cd ~/.local/share/fonts && \
