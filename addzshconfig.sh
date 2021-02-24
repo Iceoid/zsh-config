@@ -1,6 +1,20 @@
 #!/bin/bash
 
-sed -i .bak 's/ZSH_THEME="robbyrussell"/ZSH_THEME="fino"/' ~/.zshrc
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     
+        machine=Linux
+        sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="fino"/' ~/.zshrc
+        ;;
+    Darwin*)
+        machine=Mac
+        sed -i .bak 's/ZSH_THEME="robbyrussell"/ZSH_THEME="fino"/' ~/.zshrc
+        ;;
+    *)
+        machine="OTHER:${unameOut}"
+        ;;
+esac
+
 echo 'alias ll="ls -hal"' >> ~/.zshrc
 
 function help() {
