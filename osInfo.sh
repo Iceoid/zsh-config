@@ -20,7 +20,8 @@ function get_osInfo(){
 
     echo "${package_manager}"
 }
-echo $(get_osInfo)
+cmd=$(get_osInfo)
+echo "$cmd test test test"
 # echo $(get_osInfo)
 # res=$(get_osInfo)
 # echo $res
