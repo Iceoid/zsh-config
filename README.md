@@ -29,11 +29,8 @@ cd ~/.local/share/fonts && \
 curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf && \
 curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf &&\
 curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf && \
-curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf &&\
-fc-cache -f -v
+curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 ```
-### confirm fonts install with:
-`fc-list | grep "MesloLGS"`
 
 ### _For Windows wsl_:
 ### To install, go to the Windows fonts menu and drag and drop the ttf files.
