@@ -1,7 +1,7 @@
-# For WSL (windows terminal):
+# For Linux and WSL (windows terminal):
 
 ### Install zsh
-`sudo apt update`
+`sudo apt update` < \br>
 `sudo apt install curl zsh -y`
 
 ### Install oh-my-zsh
@@ -17,14 +17,19 @@
 `echo 'alias ll="ls -hal"' >> ~/.zshrc`
 
 ### Install powerline mono fonts. Official ones (MesloLGS NF) are here
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
+##### For Linux:
+tbd
+
+##### For Windows wsl:
 ##### To install, go to the Windows fonts menu and drag and drop the ttf files.
 
-### (optional) For Visual Studio Code: Open File → Preferences → Settings, enter terminal.integrated.fontFamily in the search box and set the value to MesloLGS NF.
+### (optional) For Visual Studio Code: 
+Open File → Preferences → Settings, enter terminal.integrated.fontFamily in the search box and set the value to MesloLGS NF.
 
 ### Set the fontFace in the terminal options:
 ```
@@ -37,7 +42,6 @@
     
 }
 ```
-
 ### Quit the terminal session and relaunch
 
 ### Run the configurator
@@ -49,7 +53,16 @@
 ### Install plugins
 #### syntax-highlighting
 `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+
+#### autosuggestions
 `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+#### In ~/.zshrc add the plugins in `plugins=()`
+`plugins=( git zsh-syntax-highlighting zsh-autosuggestions )`
+
+### after saving the file:
+`source ~/.zshrc`
+
 
 -----------------------------------------------------------------------------------------------------------------------
 # For MacOS (iTerm2 is suggested)
@@ -64,7 +77,7 @@
 `echo 'alias ll="ls -hal"' >> ~/.zshrc`
 
 ### Install Fonts. iTerm2 can install them for you in the next step.
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-    - https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+* https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
