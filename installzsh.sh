@@ -40,7 +40,7 @@ function install_packages() {
 }
 
 ### Installs oh-my-zsh, powerlevel10k theme, and plugins
-function install() {
+function common_install() {
     #sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     cd ~ && mkdir .zshinstall && cd .zshinstall
     wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -77,15 +77,25 @@ case "${unameOut}" in
         curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf && \
         curl -L -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
-        install
+        common_install
+	
+	sed -i 's/plugins=(git)/plugins=( git zsh-syntax-highlighting zsh-autosuggestions )/' ~/.zshrc
+	source ~/.zshrc
+    	chsh -s $(which zsh)
+    	zsh
 
-        source ~/.zshrc
         ;;
     Darwin*)
         machine=Mac
         echo "Installing on ${unameOut}"
 
-        install
+        common_install
+
+        sed -i '.original' 's/plugins=(git)/plugins=( git zsh-syntax-highlighting zsh-autosuggestions )/' ~/.zshrc
+        source ~/.zshrc
+        chsh -s $(which zsh)
+        zsh
+
         ;;
     *)
         machine="OTHER:${unameOut}"
